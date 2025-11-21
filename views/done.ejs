@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Proceso Completado! - Unicaja</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Manrope', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .success-container {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            display: block;
+            color: #4CAF50;
+        }
+        
+        h1 {
+            color: #005265;
+            margin-bottom: 16px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        p {
+            color: #666;
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #005265;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #003d4a;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <svg class="success-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="28" fill="#E8F5E9"/>
+            <path d="M32 16L40 22V32C40 38 36 42 32 46C28 42 24 38 24 32V22L32 16Z" fill="#4CAF50"/>
+            <path d="M28 32L30 34L36 28" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        
+        <h1>¡Proceso Completado!</h1>
+        <p>Su operación se ha realizado con éxito. Gracias por confiar en nosotros.</p>
+        
+        <a href="/" class="btn">Volver al inicio</a>
+        
+        <div class="footer">
+            <p>© Unicaja Banco, S.A. 2025. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

